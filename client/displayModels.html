@@ -12,6 +12,8 @@
 </head>
 
 <body>
+    <script src="https://unpkg.com/vue@2.6.14"></script>
+    <script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
     <script type="importmap">
         {
             "imports": {
@@ -24,14 +26,40 @@
         import Stats from './jsm/libs/stats.module.js';
         import { OrbitControls } from './jsm/controls/OrbitControls.js';
         import { FBXLoader } from './jsm/loaders/FBXLoader.js'
-        import { OBJLoader } from './jsm/loaders/OBJLoader.js'
 
         var container, stats, controls, camera, scene, renderer, light;
+        let loader = new FBXLoader();
 
+        const loadModel = async() => {
+          let url = await loadModels();
+          loader = new FBXLoader();
+          loader.load(url, object => {
+            scene.add(object);
+          });       
+        }
+        
+        const loadModels = async () => {
+          try {
+            const res = await axios({
+            method: 'GET',
+            url: 'http://localhost:8000/api/v1/models'
+          });
+        
+            const modelItems = res.data.data;
+            const randomModel = modelItems[Math.floor(Math.random()*modelItems.length)];
+            console.log(randomModel.model)
+            return randomModel.model;
+
+          } catch (err) {
+            console.error(err); 
+          }
+        };
         init();
         animate();
         function init() {
             container = document.createElement('div');
+            container.classList.add("ct");
+
             document.body.appendChild(container);
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, .2, 1000);
             camera.position.set(0, 1.6, 0);
@@ -49,34 +77,8 @@
             grid.material.opacity = 0.2;
             grid.material.transparent = true;
             scene.add(grid);
-            // model
 
-            // var loader = new FBXLoader();
-            // loader.load('fbx/demo1.fbx', function (object) {
-            //     undefined
-            //     object.traverse(function (child) {
-            //         undefined
-            //         if (child.isMesh) {
-            //             undefined
-            //             child.castShadow = true;
-            //             child.receiveShadow = true;
-            //         }
-            //     });
-            //     object.rotation.y = Math.PI / 2;
-            //     //object.rotation.x = -Math.PI/2 - Math.PI/12;
-            //     object.position.set(0, -0.15, 0.3);
-            //     console.log(object.position);
-            //     object.scale.set(.003, .003, .003);
-            //     scene.add(object);
-            // });
-            // const loader = new OBJLoader();
-            // loader.load('', object => {
-            //  scene.add(object);
-            //  });
-            const loader = new FBXLoader();
-            loader.load('https://brio-models.s3.me-south-1.amazonaws.com/Ring_17023_RND.fbx', object => {
-              scene.add(object);
-            });
+            loadModel();
 
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setPixelRatio(window.devicePixelRatio);
@@ -88,10 +90,18 @@
             controls.update();
             window.addEventListener('resize', onWindowResize, false);
 
-            // stats
             stats = new Stats();
-            container.appendChild(stats.dom);
+            container.appendChild(stats.dom);   
         }
+
+        document.addEventListener('keyup', (e) => {
+            if (event.code === 'Space') {
+                const found = document.querySelector('.ct')
+                found.remove()
+                init();
+                animate();
+            }
+        })
 
         function onWindowResize() {
             undefined
@@ -100,14 +110,13 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         }
 
-        //
-
         function animate() {
             undefined
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
             stats.update();
         }
+
     </script>
 </body>
 </html>
