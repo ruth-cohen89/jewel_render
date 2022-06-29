@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>model display</title>
+    <title>display</title>
     <style>
         body {
             margin: 0;
@@ -47,15 +47,16 @@
         
             const modelItems = res.data.data;
             const randomModel = modelItems[Math.floor(Math.random()*modelItems.length)];
-            console.log(randomModel.model)
             return randomModel.model;
 
           } catch (err) {
             console.error(err); 
           }
         };
+
         init();
         animate();
+
         function init() {
             container = document.createElement('div');
             container.classList.add("ct");

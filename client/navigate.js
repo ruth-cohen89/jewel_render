@@ -25,13 +25,13 @@ const searchModel = async(model) => {
     
     const modelItems = res.data.data;
     const modelItemsNames = modelItems.map((e)=>{return e.name});
-
     const valueInput = document.getElementById("valueInput"); 
+    
     let message; 
     if (modelItemsNames.includes(model)) {
-      message = `Model: ${model} found`;
+      message = `Model: '${model}' found`;
     } else {
-      message = `Model: ${model} not found`
+      message = `Model: '${model}' not found`
     }
 
     valueInput.innerHTML = message;
@@ -58,8 +58,6 @@ const showModels = async () => {
 
 const createModelList = modelItems => {
   const modelList = document.createElement('ul');
-  modelList.classList.add("todo");
-
   document.getElementById('renderList').appendChild(modelList);
 
   if (Array.isArray(modelItems) && modelItems.length > 0) {
@@ -79,7 +77,6 @@ const createModelElement = item => {
 
   modelElement.appendChild(document.createTextNode(item.name));
   modelElement.appendChild(btnDlt);
-
   modelElement.dataset.id = item._id;
 
   btnDlt.onclick = function() {

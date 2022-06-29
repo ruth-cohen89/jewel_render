@@ -3,13 +3,11 @@ const cookieParser = require('cookie-parser');
 const modelRouter = require('./routes/modelRoutes');
 const errorController = require('./controllers/errorController');
 const cors = require('cors');
-const morgan = require('morgan');
 const app = express();
 
 app.enable('trust proxy');
 app.use(cors());
 app.options('*', cors());
-app.use(morgan('dev'));
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());

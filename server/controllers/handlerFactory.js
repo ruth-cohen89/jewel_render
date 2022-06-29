@@ -1,11 +1,9 @@
-//const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
-// eslint-disable-next-line import/extensions
-const APIFeatures = require('../utils/apiFeatures.js');
 
 exports.createOne = (Model) =>
   catchAsync(async (req, res, next) => {
     const doc = await Model.create(req.body);
+    
     res.status(201).json({
       status: 'success',
       data: {
@@ -60,9 +58,6 @@ exports.updateOne = (Model) =>
 exports.deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
     const doc = await Model.findByIdAndDelete(req.params.id);
-    // if (!doc) {
-    //   return next(error);
-    // }
 
     res.status(204).json({
       status: 'success',
