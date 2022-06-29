@@ -6,7 +6,7 @@
     "start": "nodemon server.js",
     "prod": "SET NODE_ENV=production&&nodemon server.js"
   },
-  "repository": {
+  "repository": { 
     "type": "git",
     "url": "git+https://github.com/ruth-cohen89/brioAssignment_Ruth.git"
   },

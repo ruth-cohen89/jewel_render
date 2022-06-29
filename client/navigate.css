@@ -27,12 +27,12 @@
 
   input {
     width:150px;
-    height:30px;
+    height:25px;
     font-size:20px;
   }
   button {
     background-color:rgb(233, 176, 176);
-    height:35px;
+    height:30px;
     font-size:20px;
   }
   img {
@@ -40,4 +40,7 @@
     height:250px;
   }
   
+  label {
+    font-size:20px;
+  }
   

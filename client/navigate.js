@@ -1,6 +1,7 @@
 /* eslint-disable */
 const showButton = document.getElementById('show'); 
 const searchButton = document.getElementById('search'); 
+const form = document.getElementById('upload');
 
 if (showButton) {
   showButton.addEventListener('click', e => {
@@ -99,3 +100,32 @@ const deleteModel = async (modelId) => {
     console.error(err); 
   }
 }
+
+form.addEventListener("submit", function (event) {
+	event.preventDefault();
+
+  const name = form.elements['name'].value;
+  const model = form.elements['model'].value;;
+  createModel(name, model);
+});
+
+const createModel = async (name, model) => {
+  try {
+    const res = await axios({
+      method: 'POST',
+      url: 'http://localhost:8000/api/v1/models',
+      data: {
+        model: model,
+        name: name,
+      },
+      headers: { 'Content-Type': 'application/json; charset=UTF-8'}
+    });
+
+    if (res.status === 'success') {
+      alert('Model successfully uploaded')
+    }
+
+  } catch (err) {
+    console.error(err); 
+  }
+};

@@ -6,7 +6,7 @@ router
   .route('/')
   .get(modelController.getAllModels)
   .post(modelController.createModel);
-
+ 
 router
   .route('/:id')
   .get(modelController.getModel)

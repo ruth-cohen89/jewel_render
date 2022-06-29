@@ -21,7 +21,19 @@
   <script src="https://unpkg.com/vue@2.6.14"></script>
   <script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
   <script type="module" src="navigate.js"></script>
-  <img src="https://getlogo.net/wp-content/uploads/2021/01/james-allen-logo-vector.png" alt="">
-
+  
+    <form action="upload.html" method="post" id="upload">
+      <h2>Upload new model:</h2>
+      <div class="field">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="model name" />
+      </div>
+      <div class="field">
+        <label for="model">model:</label>
+        <input type="text" id="model" name="model" placeholder="model url" />
+      </div>
+      <button type="submit">Upload</button>
+    </form>
+    <img src="https://getlogo.net/wp-content/uploads/2021/01/james-allen-logo-vector.png" alt="">
 </body>
 </html>
