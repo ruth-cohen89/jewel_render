@@ -20,16 +20,10 @@
     margin-top: 15px;
       background: #4EB9CD;
       transition: all 0.75s 
-  };
-  
-  .buttons {
-    width: 100px;
-    height: 50px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: inline-block;
-    
   }
+  p {
+    font-size:20px;
+  }
+
   
   
