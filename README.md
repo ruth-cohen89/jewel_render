@@ -38,11 +38,10 @@ Jewel_render is a web-based application for rendering and showcasing jewelry usi
    
 3. Configure AWS S3:
 
-  - Create an S3 bucket for storing jewelry objects.
-  - Set up AWS credentials with appropriate permissions.
-  - Set up environment variables:
-  
-  Create a .env file in the root directory and add the following:
+- Create an S3 bucket for storing jewelry objects.
+- Set up AWS credentials with appropriate permissions.
+- Set up environment variables:
+- Create a .env file in the root directory and add the following:
   ```sh
   AWS_ACCESS_KEY_ID=your-access-key-id
   AWS_SECRET_ACCESS_KEY=your-secret-access-key
@@ -54,11 +53,11 @@ Jewel_render is a web-based application for rendering and showcasing jewelry usi
   ```sh
   npm start
 2. Open your web browser and navigate to:
-http://localhost:3000
+   http://localhost:3000
 
 ### Usage
-Uploading Jewelry Models: Use the provided interface to upload jewelry object files to AWS S3.
-Viewing Jewelry Models: Select and view uploaded models in the interactive 3D viewer.
+- Uploading Jewelry Models: Use the provided interface to upload jewelry object files to AWS S3.
+- Viewing Jewelry Models: Select and view uploaded models in the interactive 3D viewer.
 
 ### Contributing
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
