@@ -17,7 +17,7 @@ This project provides a seamless experience for viewing and interacting with 3D 
 
 - **Frontend**: Three.js, HTML, CSS, JavaScript
 - **Backend**: Node.js, Express
-- **Storage**: AWS S3
+- **Storage**: MongoDB, AWS S3
 - **Other Tools**: Webpack, Babel
 
 ## Getting Started
@@ -38,6 +38,8 @@ This project provides a seamless experience for viewing and interacting with 3D 
    ```sh
    npm install
    
+3. Create a MongoDB database
+   
 3. Configure AWS S3:
 
 - Create an S3 bucket for storing jewelry objects.
@@ -50,6 +52,7 @@ This project provides a seamless experience for viewing and interacting with 3D 
   AWS_ACCESS_KEY_ID=your-access-key-id
   AWS_SECRET_ACCESS_KEY=your-secret-access-key
   S3_BUCKET_NAME=your-s3-bucket-name
+  MONGO_
 
 ### Running the Application
 
