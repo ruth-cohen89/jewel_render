@@ -33,7 +33,7 @@ Jewel_render is a web-based application for rendering and showcasing jewelry usi
    git clone https://github.com/yourusername/jewelrender.git
 2. Install dependencies:
    ```sh
-  npm install
+   npm install
 3. Configure AWS S3:
 
   ** Create an S3 bucket for storing jewelry objects.
