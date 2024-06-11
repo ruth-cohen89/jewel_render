@@ -2,7 +2,9 @@
 
 ## Overview
 
-Jewel_render is a web-based application for rendering and showcasing jewelry using Three.js for 3D visualization. The backend is built with Node.js and Express, while AWS S3 is used for storing the jewelry object files. This project provides a seamless experience for viewing and interacting with 3D models of jewelry directly in the browser.
+Jewel_render is a web-based application for rendering and showcasing jewelry using Three.js for 3D visualization. 
+
+This project provides a seamless experience for viewing and interacting with 3D models of jewelry directly in the browser.
 
 ## Features
 
