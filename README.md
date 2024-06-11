@@ -52,6 +52,8 @@ Jewel_render is a web-based application for rendering and showcasing jewelry usi
 1. Start the backend server:
   ```sh
   npm start
+ ```
+
 2. Open your web browser and navigate to:
    http://localhost:3000
 
